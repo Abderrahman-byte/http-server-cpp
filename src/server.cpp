@@ -13,8 +13,12 @@ int start_server(const char* addr, int port) {
     int option_value = 1;
     struct sockaddr_in server_address = make_addr_port(addr, port);
 
-    if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, (void*)&option_value, sizeof(option_value))) {
-        throw "Could\'t set socket options";
+    if (set_SO_REUSEADDR(server_socket)) {
+        throw "Could\'t set socket SO_REUSEADDR option";
+    }
+
+    if (set_SO_KEEPALIVE(server_socket)) {
+        throw "Could\'t set socket SO_KEEPALIVE option";
     }
 
     if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address))) {
@@ -37,4 +41,16 @@ struct sockaddr_in make_addr_port(const char *addr, int port) {
     address.sin_port = htons(port);
 
     return address;
+}
+
+// Set SO_REUSEADDR OPTION
+int set_SO_REUSEADDR(int socket) {
+    int option_value = 1;
+    return setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, (void*)&option_value, sizeof(option_value));
+}
+
+// Set SO_KEEPALIVE OPTION
+int set_SO_KEEPALIVE(int socket) {
+    int option_value = 1;
+    return setsockopt(socket, SOL_SOCKET, SO_KEEPALIVE, (void*)&option_value, sizeof(option_value));
 }

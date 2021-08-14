@@ -8,5 +8,7 @@
 
 extern int start_server(const char* = DEFAULT_ADDR, int = DEFAULT_PORT);
 extern struct sockaddr_in make_addr_port(const char*, int);
+extern int set_SO_REUSEADDR(int);
+extern int set_SO_KEEPALIVE(int);
 
 #endif
