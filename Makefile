@@ -2,12 +2,13 @@ CC = g++
 SRC_DIR := $(shell readlink -f ./src)
 BUILD_DIR := $(shell readlink -f ./build)
 INCLUDE_PATH := $(shell readlink -f ./include)
+SHARED_LIBS := -pthread
 LIBRARIES = ${BUILD_DIR}/lib/http_parser/parser.o
 OBJECT_FILES = ${BUILD_DIR}/main.o ${BUILD_DIR}/server.o ${LIBRARIES}
 APP_NAME = main
 
 ${APP_NAME} : clean ${OBJECT_FILES}
-	@${CC} -o ${BUILD_DIR}/${APP_NAME} ${OBJECT_FILES}
+	@${CC} ${SHARED_LIBS} -o ${BUILD_DIR}/${APP_NAME} ${OBJECT_FILES}
 	@rm -f ${OBJECT_FILES} ./main
 	@if [ -e ${BUILD_DIR}/lib ] ; then rm -r ${BUILD_DIR}/lib ; fi
 
