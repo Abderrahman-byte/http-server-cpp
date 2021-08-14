@@ -4,9 +4,9 @@ BUILD_DIR := $(shell readlink -f ./build)
 INCLUDE_PATH := $(shell readlink -f ./include)
 SHARED_LIBS := -pthread
 LIBRARIES = ${BUILD_DIR}/lib/http_parser/parser.o
-OBJECT_FILES = ${BUILD_DIR}/main.o \
-	${BUILD_DIR}/server.o ${BUILD_DIR}/handleThread.o \
-	${BUILD_DIR}/connection.o ${LIBRARIES}
+OBJECT_FILES = ${BUILD_DIR}/main.o ${BUILD_DIR}/server.o \
+	${BUILD_DIR}/handleThread.o \
+	${BUILD_DIR}/handleRequest.o ${BUILD_DIR}/connection.o ${LIBRARIES}
 APP_NAME = main
 
 ${APP_NAME} : clean ${OBJECT_FILES}

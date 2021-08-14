@@ -1,8 +1,8 @@
 #include <thread>
 #include <sys/socket.h>
 #include <bits/refwrap.h>
+#include <iostream>
 
-#include "http_parser/parser.hpp"
 #include "connection.hpp"
 #include "server.hpp"
 #include "handleThread.hpp"
@@ -32,6 +32,8 @@ int main () {
         connections.push_back(conn);
 
         accepted_connections++;
+
+        // std::cout << "accepted connection num : " << accepted_connections << std::endl;
     }
 
     // Wait for threads to finish in case of interopt ?
