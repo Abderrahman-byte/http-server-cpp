@@ -8,11 +8,11 @@ class Connection {
         int socket;
         int worker_id;
         struct sockaddr_in address;
-        time_t last_request ; // Keep-alive timeout
+        time_t last_request ; // Used To track if Keep-alive timeout has passed
 
     // Methods 
         Connection(int, struct sockaddr_in);
         void close_connection();
         bool is_open();
-};
+}; // Connection
 #endif
