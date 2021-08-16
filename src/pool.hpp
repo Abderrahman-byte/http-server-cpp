@@ -4,7 +4,7 @@
 #include "connection.hpp"
 
 #ifndef _CONNECTION_POOL_H_
-#define _CONNECTION_POOL_H_
+#define _CONNECTION_POOL_H_ 1
 
 class ConnectionsPool {
     public :

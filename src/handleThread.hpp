@@ -4,7 +4,7 @@
 #include "connection.hpp"
 
 #ifndef _HANDLETHREAD_H_
-#define _HANDLETHREAD_H_
+#define _HANDLETHREAD_H_ 1
 
 #define KEEPALIVE_TIMEOUT 5
 #define SLEEP_TIME 100000

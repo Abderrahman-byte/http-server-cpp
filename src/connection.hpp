@@ -2,7 +2,7 @@
 #include <ctime>
 
 #ifndef _CONNECTION_H_
-#define _CONNECTION_H_
+#define _CONNECTION_H_ 1
 class Connection {
     public :
         int socket;

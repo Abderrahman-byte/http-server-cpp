@@ -3,7 +3,7 @@
 #include <string>
 
 #ifndef _HTTP_PARSER_H_
-#define _HTTP_PARSER_H_
+#define _HTTP_PARSER_H_ 1
 
 #define HTTP_WHITESPACE " \n\r\t\f\v"
 

@@ -4,7 +4,7 @@
 #include "../http_parser/parser.hpp"
 
 #ifndef _RESPONSE_H_
-#define _RESPONSE_H_
+#define _RESPONSE_H_ 1
 
 #define DEFAULT_STATUS 200
 #define DEFAULT_VERSION "HTTP/1.1"

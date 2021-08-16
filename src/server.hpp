@@ -1,7 +1,7 @@
 #include <arpa/inet.h>
 
 #ifndef _SERVER_H_
-#define _SERVER_H_
+#define _SERVER_H_ 1
 
 #define DEFAULT_PORT 8000
 #define DEFAULT_ADDR "127.0.0.1"
