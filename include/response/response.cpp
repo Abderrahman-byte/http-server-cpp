@@ -68,7 +68,7 @@ std::string Response::get_raw_headers() {
 void Response::set_default_headers() {
     http_header_t default_headers[] = {
         {"Content-Type", "text/html"},
-        {"Connection", "keep-alive"},
+        {"Connection", "Keep-alive"},
         {"Keep-Alive", "timeout=5"}
     };
     
@@ -87,7 +87,7 @@ std::string Response::get_raw() {
     std::string raw_response = "";
     int body_length;
 
-    if (check_http_version(this->http_version)) {
+    if (!check_http_version(this->http_version)) {
         this->http_version = DEFAULT_VERSION;
     }
 
