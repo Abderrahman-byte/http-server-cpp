@@ -1,6 +1,8 @@
 #include <string>
 #include <sys/stat.h>
 #include <fstream>
+#include <sstream>
+#include <bits/basic_string.h>
 
 #include "utils.hpp"
 
@@ -59,4 +61,28 @@ std::string get_file_extension(std::string filename) {
 
     if (dot_pos <= 0 || dot_pos + 1 >= filename.length()) return "";
     else return filename.substr(dot_pos + 1);
+}
+
+bool check_ip_address(std::string address) {
+    int parts_count = 0;
+    std::stringstream address_stream(address);
+    std::string part;
+
+    while (getline(address_stream, part, '.')) {
+        int part_int;
+
+        try {
+            part_int = stoi(part);
+        } catch(...) {
+            return false;
+        }
+    
+        if (parts_count >= 4) return false;
+
+        if (part_int > 255 || part_int < 0) return false;
+
+        parts_count++;
+    }
+
+    return parts_count == 4;
 }
