@@ -8,17 +8,19 @@
 #include "server.hpp"
 
 // Start a tcp server and return socket fd
-int start_server(const char* addr, int port) {
+int start_server(const char* addr, int port, bool keep_alive) {
     int server_socket = socket(AF_INET, SOCK_STREAM, 0);
     int option_value = 1;
     struct sockaddr_in server_address = make_addr_port(addr, port);
 
-    if (set_SO_REUSEADDR(server_socket)) {
+    if (set_SO_REUSEADDR(server_socket) < 0) {
         throw "Could\'t set socket SO_REUSEADDR option";
     }
 
-    if (set_SO_KEEPALIVE(server_socket)) {
-        throw "Could\'t set socket SO_KEEPALIVE option";
+    if (keep_alive) {
+        if (set_SO_KEEPALIVE(server_socket) < 0) {
+            throw "Could\'t set socket SO_KEEPALIVE option";
+        }
     }
 
     if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address))) {
