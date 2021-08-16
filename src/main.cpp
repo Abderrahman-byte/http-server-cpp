@@ -26,6 +26,9 @@ int main () {
     // Keep accepting new connections
     while (true) {
         connections.cleanClosedConnections();
+        int ps = connections.size();
+        std::cout << "[*] Size of pool " << ps << std::endl; 
+        std::cout << "[*] Size of pool " << sizeof(Connection) * ps << std::endl; 
 
         struct sockaddr_in client_address;
         int client_socket = accept(server_socket, (struct sockaddr *)&client_address, &address_len);
@@ -35,6 +38,8 @@ int main () {
         connections.push_back(conn);
 
         accepted_connections++;
+        
+        std::cout << "[*] Accepted connection num : " << accepted_connections << std::endl;
     }
 
     // Wait for threads to finish in case of interopt ?

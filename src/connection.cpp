@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <ctime>
+#include <errno.h>
 
 #include "connection.hpp"
 
@@ -23,7 +24,7 @@ bool Connection::is_open() {
     unsigned char buffer;
 
     // Try to recv data from socket if received 0 then the connection is closed
-    int received = recv(this->socket, &buffer, 1, MSG_PEEK | MSG_DONTWAIT);  
+    int received = recv(this->socket, &buffer, 1, MSG_PEEK | MSG_DONTWAIT);
 
-    return received != 0;
+    return received > 0 || (received < 0 && errno == EAGAIN);
 }

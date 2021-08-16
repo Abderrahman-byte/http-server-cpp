@@ -14,8 +14,6 @@ void ConnectionsPool::push_back (Connection conn) {
 
 // Remove closed connection
 void ConnectionsPool::cleanClosedConnections () {
-    if (this->pool.size() <= 5) return;
-
     std::lock_guard <std::mutex> lock(this->m);
     std::vector<Connection>::iterator current_connection = pool.begin(); 
     
