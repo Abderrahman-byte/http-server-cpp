@@ -3,6 +3,8 @@
 #ifndef _CONFIG_H_
 #define _CONFIG_H_ 1
 
+#define DEFAULT_CONFIG_FILE "./config.cfg"
+
 #define DEFAULT_PORT 8000
 #define DEFAULT_ADDR "127.0.0.1"
 #define DEFAULT_THREADS_COUNT 4
@@ -26,6 +28,7 @@ typedef struct {
 } config_t;
 
 extern void init_config(config_t *) ;
-extern void parse_config(config_t *, std::string) ;
+extern void parse_config(config_t *, std::string = DEFAULT_CONFIG_FILE) ;
+extern void add_config_line(config_t *, std::string) ;
 
 #endif
