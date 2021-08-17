@@ -4,6 +4,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <errno.h>
+#include <iostream>
 
 #include "server.hpp"
 
@@ -23,11 +25,27 @@ int start_server(const char* addr, int port, bool keep_alive) {
         }
     }
 
-    if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address))) {
+    if (bind(server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) < 0) {
+        if (errno == EADDRINUSE) {
+            throw "Address already in use";
+        }
+
+        if (errno == EACCES) {
+            throw "Permission denied on socket binding";
+        }
+
+        if (errno == EFAULT) {
+            throw "Address is accessible";
+        }
+
         throw "Could\'t bind socket with address";
     }
 
-    if (listen(server_socket, 5)) {
+    if (listen(server_socket, 5) < 0) {
+        if (errno == EADDRINUSE) {
+            throw "Another program is already listening on the same port";
+        }
+
         throw "Could\'t listen";
     }
 
