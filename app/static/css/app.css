@@ -1,0 +1,31 @@
+body {
+    background-color: purple;
+    color: whitesmoke;
+    font-size: 1.125rem;
+    font-family: 'sans-serif';
+}
+
+button, input {
+    outline: none;
+}
+
+.task-input {
+    padding: .5em .3em;
+    font-size: 1.2rem;
+    border: 1px solid whitesmoke;
+    border-radius: 3px;
+    margin-right: .5em;
+}
+
+.submit-btn {
+    padding: .5em 1em;
+    font-size: 1.2rem;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: none;
+    color: purple;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
