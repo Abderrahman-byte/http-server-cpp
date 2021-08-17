@@ -14,8 +14,8 @@ APP_NAME = simple_http_server
 
 ${APP_NAME} : clean ${BUILD_DIR} ${OBJECT_FILES}
 	${CC} ${SHARED_LIBS} -o ${BUILD_DIR}/${APP_NAME} ${OBJECT_FILES}
-	@rm -f ${OBJECT_FILES}
-	@if [ -e ${BUILD_DIR}/lib ] ; then rm -r ${BUILD_DIR}/lib ; fi
+	# @rm -f ${OBJECT_FILES}
+	# @if [ -e ${BUILD_DIR}/lib ] ; then rm -r ${BUILD_DIR}/lib ; fi
 
 ${BUILD_DIR}/lib/%.o : ${INCLUDE_PATH}/%.cpp
 	@if [ ! -e $(shell dirname $@) ] ; then mkdir -p $(shell dirname $@) ; fi
