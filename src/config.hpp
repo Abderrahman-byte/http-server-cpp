@@ -29,6 +29,7 @@ typedef struct {
 
 extern void init_config(config_t *) ;
 extern void parse_config(config_t *, std::string = DEFAULT_CONFIG_FILE) ;
-extern void add_config_line(config_t *, std::string) ;
+extern void add_config_line(config_t *, std::string, std::string) ;
+extern void add_static_dir(config_t *, std::string, std::string);
 
 #endif
