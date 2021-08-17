@@ -13,16 +13,16 @@ OBJECT_FILES = ${BUILD_DIR}/main.o ${BUILD_DIR}/utils.o ${BUILD_DIR}/server.o \
 APP_NAME = simple_http_server
 
 ${APP_NAME} : clean ${BUILD_DIR} ${OBJECT_FILES}
-	@${CC} ${SHARED_LIBS} -o ${BUILD_DIR}/${APP_NAME} ${OBJECT_FILES}
+	${CC} ${SHARED_LIBS} -o ${BUILD_DIR}/${APP_NAME} ${OBJECT_FILES}
 	@rm -f ${OBJECT_FILES}
 	@if [ -e ${BUILD_DIR}/lib ] ; then rm -r ${BUILD_DIR}/lib ; fi
 
 ${BUILD_DIR}/lib/%.o : ${INCLUDE_PATH}/%.cpp
 	@if [ ! -e $(shell dirname $@) ] ; then mkdir -p $(shell dirname $@) ; fi
-	@${CC} -c -o $@ $^
+	${CC} -c -o $@ $^
 
 ${BUILD_DIR}/%.o: ${SRC_DIR}/%.cpp
-	@${CC} -I ${INCLUDE_PATH} -c -o $@ $^
+	${CC} -I ${INCLUDE_PATH} -c -o $@ $^
 
 ${BUILD_DIR} :
 	@mkdir -p $@
