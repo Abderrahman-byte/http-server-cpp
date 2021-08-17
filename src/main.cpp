@@ -3,11 +3,10 @@
 #include <bits/refwrap.h>
 #include <iostream>
 #include <exception>
-#include <argp.h>
-#include <tr1/tuple>
 
 #include "config.hpp"
 #include "pool.hpp"
+#include "utils.hpp"
 #include "connection.hpp"
 #include "server.hpp"
 #include "handleThread.hpp"
@@ -19,10 +18,13 @@ int main (int argc, char **argv) {
     ConnectionsPool connections; // Connections pool
     config_t config; // Configuration object
     bool keep_alive = true; // whether to set SO_KEEPALIVE or not
+    std::string config_filename;
+
+    parse_args(argc, argv, config_filename);
 
     try {
         init_config(&config); /* Initializing config object with default values */
-        parse_config(&config); /* Parse Configuration from config file */
+        parse_config(&config, config_filename); /* Parse Configuration from config file */
     } catch (const char *err) {
         std::cerr << "[CONFIG ERROR] " << err << std::endl;
         exit(EXIT_FAILURE);

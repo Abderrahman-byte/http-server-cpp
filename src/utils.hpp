@@ -1,4 +1,5 @@
 #include <string>
+#include <stdlib.h>
 #include <sys/stat.h>
 
 #ifndef _UTILS_H_
@@ -9,5 +10,7 @@ extern std::string join_path(std::string, std::string);
 extern std::string get_file_content(std::string);
 extern std::string get_file_extension(std::string);
 extern bool check_ip_address(std::string);
+extern void parse_args(int, char *[], std::string &);
+extern void show_usage(std::string, int = EXIT_SUCCESS);
 
 #endif

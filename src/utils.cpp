@@ -3,6 +3,9 @@
 #include <fstream>
 #include <sstream>
 #include <bits/basic_string.h>
+#include <argp.h>
+#include <iostream>
+#include <vector>
 
 #include "utils.hpp"
 
@@ -85,4 +88,39 @@ bool check_ip_address(std::string address) {
     }
 
     return parts_count == 4;
+}
+
+void parse_args(int argc, char *argv[], std::string &config_filename) {
+    std::vector <std::string> args (argv, argv + argc);
+
+    if (argc <= 1) return ;
+
+    if (argc > 3) {
+        std::cout << "[ERROR] Too many arguments" << std::endl;
+        show_usage(args[0], 1);
+    }
+
+    if (args[1] == "--file" || args[1] == "-f") {
+        if (argc >= 3 && args[2] != "") {
+            config_filename = args[2];
+            return ;
+        }
+
+        std::cout << "[ERROR] Missing config file name" << std::endl;
+        show_usage(args[0], 1);
+    }
+
+    if (args[1] == "--help" || args[1] == "-h") {
+        show_usage(args[0], 0);
+    } else {
+        std::cout << "[ERROR] Invalid arguments" << std::endl;
+        show_usage(args[0], 1);
+    }
+}
+
+extern void show_usage(std::string name, int status) {
+    std::cout << "Usage : " << name << " [-f <config_file>]" << std::endl;
+    std::cout << "\t-f --file : config file (default : ./config.cfg)" << std::endl;
+    std::cout << "\t-h --help : show options" << std::endl;
+    exit(status);
 }

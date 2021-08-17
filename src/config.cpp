@@ -35,6 +35,8 @@ void parse_config(config_t *config, std::string filename) {
     std::stringstream config_content;
     std::string templine;
 
+    if (filename.length() <= 0) filename = DEFAULT_CONFIG_FILE;
+
     if (!check_file_exists(filename, &config_file_stat)) {
         throw "Config file doesn\'t exist";
     }
@@ -122,6 +124,7 @@ void add_config_line(config_t *config, std::string line, std::string config_path
         return ;
     }
 
+    throw std::runtime_error("Unknown Config directive \"" + name + "\"");
 }
 
 
