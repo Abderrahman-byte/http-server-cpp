@@ -43,12 +43,12 @@ header_powered_by=NULL
 
 ## TODOs :
 
-    - [x] Clean Connections Pool
-    - [x] Parse http url 
-    - [x] Parse search query
-    - [x] Create Response Object
-    - [x] Serve static files
-    - [ ] Add Keep-alive max requests
-    - [x] Make it configurable
-    - [x] Add Error Handling
-    - [x] Add config file as commad line argument
+- [x] Clean Connections Pool
+- [x] Parse http url 
+- [x] Parse search query
+- [x] Create Response Object
+- [x] Serve static files
+- [ ] Add Keep-alive max requests
+- [x] Make it configurable
+- [x] Add Error Handling
+- [x] Add config file as commad line argument
