@@ -10,12 +10,14 @@ No Library is required Buildin library Only.
 
 ## Installation :
 
+Cmake and make Should be installed
+
 ```shell
 git clone <repo>
 
 cd <repo>
 
-make
+./configure.sh && ./build.sh
 mv ./build/simple_http_server /usr/local/bin
 ```
 
