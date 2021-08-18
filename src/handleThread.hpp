@@ -1,5 +1,3 @@
-#include <vector>
-
 #include "pool.hpp"
 #include "connection.hpp"
 

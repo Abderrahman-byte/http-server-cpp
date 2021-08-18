@@ -1,6 +1,7 @@
 #include <string>
 
 #include "../http_parser/parser.hpp"
+#include "../http_parser/utils.hpp"
 #include "response.hpp"
 
 Response::Response(int status, std::string body) {

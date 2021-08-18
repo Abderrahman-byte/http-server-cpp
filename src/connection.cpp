@@ -1,8 +1,4 @@
-#include <iostream>
-#include <netinet/in.h>
 #include <unistd.h>
-#include <sys/socket.h>
-#include <ctime>
 #include <errno.h>
 
 #include "connection.hpp"

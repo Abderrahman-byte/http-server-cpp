@@ -1,10 +1,8 @@
 #include <vector>
 #include <mutex>
-#include <iostream>
 
-#include "connection.hpp"
 #include "pool.hpp"
-
+#include "connection.hpp"
 
 // Pool Constructor
 void ConnectionsPool::push_back (Connection conn) {

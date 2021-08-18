@@ -1,16 +1,11 @@
 #include <iostream>
 #include <unistd.h>
-#include <limits.h>
-#include <stdlib.h>
 #include <sstream>
-#include <bits/basic_string.h>
 #include <libgen.h>
 #include <string.h>
-#include <sys/stat.h>
-#include <exception>
-#include <errno.h>
 
 #include "http_parser/parser.hpp"
+#include "http_parser/utils.hpp"
 #include "utils.hpp"
 #include "config.hpp"
 

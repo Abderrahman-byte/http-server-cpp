@@ -1,11 +1,7 @@
-#include <string>
-#include <iostream>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
 #include <unistd.h>
 
 #include "http_parser/parser.hpp"
+#include "http_parser/url.hpp"
 #include "response/response.hpp"
 #include "config.hpp"
 #include "mime-types/mime.hpp"
