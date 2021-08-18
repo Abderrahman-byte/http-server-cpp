@@ -24,7 +24,9 @@ int main (int argc, char **argv) {
 
     try {
         init_config(&config); /* Initializing config object with default values */
-        parse_config(&config, config_filename); /* Parse Configuration from config file */
+        if (config_filename.length() > 0) {
+            parse_config(&config, config_filename); /* Parse Configuration from config file */
+        }
     } catch (const char *err) {
         std::cerr << "[CONFIG ERROR] " << err << std::endl;
         exit(EXIT_FAILURE);
