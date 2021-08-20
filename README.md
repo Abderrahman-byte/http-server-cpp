@@ -50,7 +50,7 @@ header_powered_by=NULL
 - [x] Parse search query
 - [x] Create Response Object
 - [x] Serve static files
-- [ ] Add Keep-alive max requests
+- [x] Add Keep-alive max requests
 - [x] Make it configurable
 - [x] Add Error Handling
 - [x] Add config file as commad line argument
