@@ -115,7 +115,7 @@ void add_config_line(config_t *config, std::string line, std::string config_path
     }
 
     if (name.compare("keep_alive_max_requests") == 0) {
-        if (value_int > 0) config->keep_alive_max_requests;
+        if (value_int > 0) config->keep_alive_max_requests = value_int;
         return ;
     }
 

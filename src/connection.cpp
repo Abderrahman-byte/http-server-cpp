@@ -8,6 +8,7 @@ Connection::Connection(int socket, struct sockaddr_in address) {
     this->socket = socket;
     this->address = address;
     this->last_request = 0;
+    this->requests_count = 0;
 }
 
 // Close connection if it's open

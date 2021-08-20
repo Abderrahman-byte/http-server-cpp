@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <iostream>
 
 #include "http_parser/parser.hpp"
 #include "config.hpp"
@@ -34,10 +35,13 @@ void handleThread (ConnectionsPool &connections, int i, config_t *config) {
                 parse_http(&request, buffer, BUFFER_SIZE); // parse http request
                 handleRequest(connection, request, config); // handle parsed request
                 connection.last_request = time(0);
+                connection.requests_count++;
 
                 // Close connection after response if protocol version is 1.0
+                // Or max requests has been reached
                 if (request.http_version.compare("HTTP/1.0") == 0 ||
-                config->http_version.compare("HTTP/1.0") == 0) {
+                config->http_version.compare("HTTP/1.0") == 0 ||
+                connection.requests_count >= config->keep_alive_max_requests) {
                     connection.close_connection();
                 }
             }
