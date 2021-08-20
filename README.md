@@ -54,3 +54,4 @@ header_powered_by=NULL
 - [x] Make it configurable
 - [x] Add Error Handling
 - [x] Add config file as commad line argument
+- [ ] Add Logs and make it configurable
