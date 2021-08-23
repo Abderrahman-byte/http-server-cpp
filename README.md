@@ -13,9 +13,9 @@ No Library is required Buildin library Only.
 Cmake and make Should be installed
 
 ```shell
-git clone <repo>
+git clone https://github.com/Abderrahman-byte/http-server-cpp
 
-cd <repo>
+cd https://github.com/Abderrahman-byte/http-server-cpp
 
 ./configure.sh && ./build.sh
 mv ./build/simple_http_server /usr/local/bin
@@ -55,3 +55,4 @@ header_powered_by=NULL
 - [x] Add Error Handling
 - [x] Add config file as commad line argument
 - [ ] Add Logs and make it configurable
+- [ ] Add Interaple sighandler
