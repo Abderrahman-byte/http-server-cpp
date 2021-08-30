@@ -56,3 +56,4 @@ header_powered_by=NULL
 - [x] Add config file as commad line argument
 - [ ] Add Logs and make it configurable
 - [ ] Add Interaple sighandler
+- [ ] Add Windows Support
