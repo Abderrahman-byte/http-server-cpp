@@ -54,6 +54,7 @@ header_powered_by=NULL
 - [x] Make it configurable
 - [x] Add Error Handling
 - [x] Add config file as commad line argument
+- [ ] Add Http Status list
 - [ ] Add Logs and make it configurable
 - [ ] Add Interaple sighandler
 - [ ] Add Windows Support
